@@ -113,7 +113,6 @@ with open(f_1,'w') as file:
 #Exe 10.12
 
 import json
-
 try:
     with open('favorite_number.json') as f:
         number = json.load(f)
@@ -123,14 +122,12 @@ except FileNotFoundError:
         json.dump(number, f)
     print("Thanks, I'll remember that.")
 else:
-    print("I know your favorite number! It's " + str(number) + ".")
+    print("I know your fav num: " + str(number))
 
 #Exe 10.13
 
 import json
-
 def get_stored_username():
-    """Get stored username if available."""
     filename = 'username.json'
     try:
         with open(filename) as f_obj:
@@ -139,17 +136,13 @@ def get_stored_username():
         return None
     else:
         return username
-
 def get_new_username():
-    """Prompt for a new username."""
     username = input("What is your name? ")
     filename = 'username.json'
     with open(filename, 'w') as f_obj:
         json.dump(username, f_obj)
     return username
-
 def greet_user():
-    """Greet the user by name."""
     username = get_stored_username()
     if username:
         correct = input("Are you " + username + "? (y/n) ")
